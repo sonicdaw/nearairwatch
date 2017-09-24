@@ -1,0 +1,828 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9246C4C1F7864C400376424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9246C4B1F7864C400376424 /* AppDelegate.swift */; };
+		D9246C4E1F7864C400376424 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9246C4D1F7864C400376424 /* ViewController.swift */; };
+		D9246C511F7864C400376424 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9246C4F1F7864C400376424 /* Main.storyboard */; };
+		D9246C531F7864C400376424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9246C521F7864C400376424 /* Assets.xcassets */; };
+		D9246C561F7864C400376424 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9246C541F7864C400376424 /* LaunchScreen.storyboard */; };
+		D9246C611F7864C500376424 /* nearairwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9246C601F7864C500376424 /* nearairwatchTests.swift */; };
+		D9246C6C1F7864C500376424 /* nearairwatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9246C6B1F7864C500376424 /* nearairwatchUITests.swift */; };
+		D9246C711F7864C500376424 /* nearairwatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D9246C701F7864C500376424 /* nearairwatch WatchKit App.app */; };
+		D9246C771F7864C500376424 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9246C751F7864C500376424 /* Interface.storyboard */; };
+		D9246C791F7864C500376424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9246C781F7864C500376424 /* Assets.xcassets */; };
+		D9246C801F7864C500376424 /* nearairwatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D9246C7F1F7864C500376424 /* nearairwatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D9246C851F7864C500376424 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9246C841F7864C500376424 /* InterfaceController.swift */; };
+		D9246C871F7864C500376424 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9246C861F7864C500376424 /* ExtensionDelegate.swift */; };
+		D9246C891F7864C500376424 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9246C881F7864C500376424 /* NotificationController.swift */; };
+		D9246C8B1F7864C500376424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9246C8A1F7864C500376424 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D9246C5D1F7864C500376424 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9246C401F7864C400376424 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9246C471F7864C400376424;
+			remoteInfo = nearairwatch;
+		};
+		D9246C681F7864C500376424 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9246C401F7864C400376424 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9246C471F7864C400376424;
+			remoteInfo = nearairwatch;
+		};
+		D9246C721F7864C500376424 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9246C401F7864C400376424 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9246C6F1F7864C500376424;
+			remoteInfo = "nearairwatch WatchKit App";
+		};
+		D9246C811F7864C500376424 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9246C401F7864C400376424 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9246C7E1F7864C500376424;
+			remoteInfo = "nearairwatch WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D9246C931F7864C500376424 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D9246C801F7864C500376424 /* nearairwatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9246C971F7864C500376424 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D9246C711F7864C500376424 /* nearairwatch WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D9246C481F7864C400376424 /* nearairwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nearairwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9246C4B1F7864C400376424 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D9246C4D1F7864C400376424 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D9246C501F7864C400376424 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D9246C521F7864C400376424 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9246C551F7864C400376424 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9246C571F7864C400376424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9246C5C1F7864C500376424 /* nearairwatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nearairwatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9246C601F7864C500376424 /* nearairwatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearairwatchTests.swift; sourceTree = "<group>"; };
+		D9246C621F7864C500376424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9246C671F7864C500376424 /* nearairwatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nearairwatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9246C6B1F7864C500376424 /* nearairwatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearairwatchUITests.swift; sourceTree = "<group>"; };
+		D9246C6D1F7864C500376424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9246C701F7864C500376424 /* nearairwatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nearairwatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9246C761F7864C500376424 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		D9246C781F7864C500376424 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9246C7A1F7864C500376424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9246C7F1F7864C500376424 /* nearairwatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "nearairwatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9246C841F7864C500376424 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		D9246C861F7864C500376424 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		D9246C881F7864C500376424 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		D9246C8A1F7864C500376424 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9246C8C1F7864C500376424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9246C8D1F7864C500376424 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9246C451F7864C400376424 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9246C591F7864C500376424 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9246C641F7864C500376424 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9246C7C1F7864C500376424 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9246C3F1F7864C400376424 = {
+			isa = PBXGroup;
+			children = (
+				D9246C4A1F7864C400376424 /* nearairwatch */,
+				D9246C5F1F7864C500376424 /* nearairwatchTests */,
+				D9246C6A1F7864C500376424 /* nearairwatchUITests */,
+				D9246C741F7864C500376424 /* nearairwatch WatchKit App */,
+				D9246C831F7864C500376424 /* nearairwatch WatchKit Extension */,
+				D9246C491F7864C400376424 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9246C491F7864C400376424 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9246C481F7864C400376424 /* nearairwatch.app */,
+				D9246C5C1F7864C500376424 /* nearairwatchTests.xctest */,
+				D9246C671F7864C500376424 /* nearairwatchUITests.xctest */,
+				D9246C701F7864C500376424 /* nearairwatch WatchKit App.app */,
+				D9246C7F1F7864C500376424 /* nearairwatch WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9246C4A1F7864C400376424 /* nearairwatch */ = {
+			isa = PBXGroup;
+			children = (
+				D9246C4B1F7864C400376424 /* AppDelegate.swift */,
+				D9246C4D1F7864C400376424 /* ViewController.swift */,
+				D9246C4F1F7864C400376424 /* Main.storyboard */,
+				D9246C521F7864C400376424 /* Assets.xcassets */,
+				D9246C541F7864C400376424 /* LaunchScreen.storyboard */,
+				D9246C571F7864C400376424 /* Info.plist */,
+			);
+			path = nearairwatch;
+			sourceTree = "<group>";
+		};
+		D9246C5F1F7864C500376424 /* nearairwatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9246C601F7864C500376424 /* nearairwatchTests.swift */,
+				D9246C621F7864C500376424 /* Info.plist */,
+			);
+			path = nearairwatchTests;
+			sourceTree = "<group>";
+		};
+		D9246C6A1F7864C500376424 /* nearairwatchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D9246C6B1F7864C500376424 /* nearairwatchUITests.swift */,
+				D9246C6D1F7864C500376424 /* Info.plist */,
+			);
+			path = nearairwatchUITests;
+			sourceTree = "<group>";
+		};
+		D9246C741F7864C500376424 /* nearairwatch WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				D9246C751F7864C500376424 /* Interface.storyboard */,
+				D9246C781F7864C500376424 /* Assets.xcassets */,
+				D9246C7A1F7864C500376424 /* Info.plist */,
+			);
+			path = "nearairwatch WatchKit App";
+			sourceTree = "<group>";
+		};
+		D9246C831F7864C500376424 /* nearairwatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D9246C841F7864C500376424 /* InterfaceController.swift */,
+				D9246C861F7864C500376424 /* ExtensionDelegate.swift */,
+				D9246C881F7864C500376424 /* NotificationController.swift */,
+				D9246C8A1F7864C500376424 /* Assets.xcassets */,
+				D9246C8C1F7864C500376424 /* Info.plist */,
+				D9246C8D1F7864C500376424 /* PushNotificationPayload.apns */,
+			);
+			path = "nearairwatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9246C471F7864C400376424 /* nearairwatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9246C981F7864C500376424 /* Build configuration list for PBXNativeTarget "nearairwatch" */;
+			buildPhases = (
+				D9246C441F7864C400376424 /* Sources */,
+				D9246C451F7864C400376424 /* Frameworks */,
+				D9246C461F7864C400376424 /* Resources */,
+				D9246C971F7864C500376424 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9246C731F7864C500376424 /* PBXTargetDependency */,
+			);
+			name = nearairwatch;
+			productName = nearairwatch;
+			productReference = D9246C481F7864C400376424 /* nearairwatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D9246C5B1F7864C500376424 /* nearairwatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9246C9B1F7864C500376424 /* Build configuration list for PBXNativeTarget "nearairwatchTests" */;
+			buildPhases = (
+				D9246C581F7864C500376424 /* Sources */,
+				D9246C591F7864C500376424 /* Frameworks */,
+				D9246C5A1F7864C500376424 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9246C5E1F7864C500376424 /* PBXTargetDependency */,
+			);
+			name = nearairwatchTests;
+			productName = nearairwatchTests;
+			productReference = D9246C5C1F7864C500376424 /* nearairwatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D9246C661F7864C500376424 /* nearairwatchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9246C9E1F7864C500376424 /* Build configuration list for PBXNativeTarget "nearairwatchUITests" */;
+			buildPhases = (
+				D9246C631F7864C500376424 /* Sources */,
+				D9246C641F7864C500376424 /* Frameworks */,
+				D9246C651F7864C500376424 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9246C691F7864C500376424 /* PBXTargetDependency */,
+			);
+			name = nearairwatchUITests;
+			productName = nearairwatchUITests;
+			productReference = D9246C671F7864C500376424 /* nearairwatchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		D9246C6F1F7864C500376424 /* nearairwatch WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9246C941F7864C500376424 /* Build configuration list for PBXNativeTarget "nearairwatch WatchKit App" */;
+			buildPhases = (
+				D9246C6E1F7864C500376424 /* Resources */,
+				D9246C931F7864C500376424 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9246C821F7864C500376424 /* PBXTargetDependency */,
+			);
+			name = "nearairwatch WatchKit App";
+			productName = "nearairwatch WatchKit App";
+			productReference = D9246C701F7864C500376424 /* nearairwatch WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		D9246C7E1F7864C500376424 /* nearairwatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9246C901F7864C500376424 /* Build configuration list for PBXNativeTarget "nearairwatch WatchKit Extension" */;
+			buildPhases = (
+				D9246C7B1F7864C500376424 /* Sources */,
+				D9246C7C1F7864C500376424 /* Frameworks */,
+				D9246C7D1F7864C500376424 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "nearairwatch WatchKit Extension";
+			productName = "nearairwatch WatchKit Extension";
+			productReference = D9246C7F1F7864C500376424 /* nearairwatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9246C401F7864C400376424 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = entatonic;
+				TargetAttributes = {
+					D9246C471F7864C400376424 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					D9246C5B1F7864C500376424 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D9246C471F7864C400376424;
+					};
+					D9246C661F7864C500376424 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D9246C471F7864C400376424;
+					};
+					D9246C6F1F7864C500376424 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					D9246C7E1F7864C500376424 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D9246C431F7864C400376424 /* Build configuration list for PBXProject "nearairwatch" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D9246C3F1F7864C400376424;
+			productRefGroup = D9246C491F7864C400376424 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9246C471F7864C400376424 /* nearairwatch */,
+				D9246C5B1F7864C500376424 /* nearairwatchTests */,
+				D9246C661F7864C500376424 /* nearairwatchUITests */,
+				D9246C6F1F7864C500376424 /* nearairwatch WatchKit App */,
+				D9246C7E1F7864C500376424 /* nearairwatch WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9246C461F7864C400376424 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9246C561F7864C400376424 /* LaunchScreen.storyboard in Resources */,
+				D9246C531F7864C400376424 /* Assets.xcassets in Resources */,
+				D9246C511F7864C400376424 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9246C5A1F7864C500376424 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9246C651F7864C500376424 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9246C6E1F7864C500376424 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9246C791F7864C500376424 /* Assets.xcassets in Resources */,
+				D9246C771F7864C500376424 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9246C7D1F7864C500376424 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9246C8B1F7864C500376424 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9246C441F7864C400376424 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9246C4E1F7864C400376424 /* ViewController.swift in Sources */,
+				D9246C4C1F7864C400376424 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9246C581F7864C500376424 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9246C611F7864C500376424 /* nearairwatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9246C631F7864C500376424 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9246C6C1F7864C500376424 /* nearairwatchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9246C7B1F7864C500376424 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9246C891F7864C500376424 /* NotificationController.swift in Sources */,
+				D9246C871F7864C500376424 /* ExtensionDelegate.swift in Sources */,
+				D9246C851F7864C500376424 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D9246C5E1F7864C500376424 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9246C471F7864C400376424 /* nearairwatch */;
+			targetProxy = D9246C5D1F7864C500376424 /* PBXContainerItemProxy */;
+		};
+		D9246C691F7864C500376424 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9246C471F7864C400376424 /* nearairwatch */;
+			targetProxy = D9246C681F7864C500376424 /* PBXContainerItemProxy */;
+		};
+		D9246C731F7864C500376424 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9246C6F1F7864C500376424 /* nearairwatch WatchKit App */;
+			targetProxy = D9246C721F7864C500376424 /* PBXContainerItemProxy */;
+		};
+		D9246C821F7864C500376424 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9246C7E1F7864C500376424 /* nearairwatch WatchKit Extension */;
+			targetProxy = D9246C811F7864C500376424 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D9246C4F1F7864C400376424 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9246C501F7864C400376424 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D9246C541F7864C400376424 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9246C551F7864C400376424 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D9246C751F7864C500376424 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9246C761F7864C500376424 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9246C8E1F7864C500376424 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D9246C8F1F7864C500376424 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D9246C911F7864C500376424 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "nearairwatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.entatonic.nearairwatch.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		D9246C921F7864C500376424 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "nearairwatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.entatonic.nearairwatch.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
+		D9246C951F7864C500376424 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = nearairwatch_WatchKit_Extension;
+				INFOPLIST_FILE = "nearairwatch WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = net.entatonic.nearairwatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		D9246C961F7864C500376424 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = nearairwatch_WatchKit_Extension;
+				INFOPLIST_FILE = "nearairwatch WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = net.entatonic.nearairwatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
+		D9246C991F7864C500376424 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = nearairwatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.entatonic.nearairwatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D9246C9A1F7864C500376424 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = nearairwatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.entatonic.nearairwatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D9246C9C1F7864C500376424 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = nearairwatchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.entatonic.nearairwatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nearairwatch.app/nearairwatch";
+			};
+			name = Debug;
+		};
+		D9246C9D1F7864C500376424 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = nearairwatchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.entatonic.nearairwatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nearairwatch.app/nearairwatch";
+			};
+			name = Release;
+		};
+		D9246C9F1F7864C500376424 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = nearairwatchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.entatonic.nearairwatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = nearairwatch;
+			};
+			name = Debug;
+		};
+		D9246CA01F7864C500376424 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = nearairwatchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.entatonic.nearairwatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = nearairwatch;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9246C431F7864C400376424 /* Build configuration list for PBXProject "nearairwatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9246C8E1F7864C500376424 /* Debug */,
+				D9246C8F1F7864C500376424 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9246C901F7864C500376424 /* Build configuration list for PBXNativeTarget "nearairwatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9246C911F7864C500376424 /* Debug */,
+				D9246C921F7864C500376424 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9246C941F7864C500376424 /* Build configuration list for PBXNativeTarget "nearairwatch WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9246C951F7864C500376424 /* Debug */,
+				D9246C961F7864C500376424 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9246C981F7864C500376424 /* Build configuration list for PBXNativeTarget "nearairwatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9246C991F7864C500376424 /* Debug */,
+				D9246C9A1F7864C500376424 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9246C9B1F7864C500376424 /* Build configuration list for PBXNativeTarget "nearairwatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9246C9C1F7864C500376424 /* Debug */,
+				D9246C9D1F7864C500376424 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9246C9E1F7864C500376424 /* Build configuration list for PBXNativeTarget "nearairwatchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9246C9F1F7864C500376424 /* Debug */,
+				D9246CA01F7864C500376424 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9246C401F7864C400376424 /* Project object */;
+}
