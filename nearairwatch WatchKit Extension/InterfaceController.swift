@@ -11,6 +11,7 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
+    @IBOutlet var nearairText: WKInterfaceLabel!
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -21,6 +22,8 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+
+        self.nearairText.setText("Hello NearAir")
     }
     
     override func didDeactivate() {
