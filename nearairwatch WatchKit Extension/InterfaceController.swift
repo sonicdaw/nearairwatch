@@ -65,7 +65,6 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         do {
             let data = try Data(contentsOf: location)
             let string = String(data: data, encoding: .utf8)
-            /* need to parse data here */
             let formatter = DateFormatter()
             formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dMMMHH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
             self.nearairText.setText(formatter.string(from: Date()) + "\r" + string!)
@@ -76,7 +75,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     func getNearAir() {
         let config = URLSessionConfiguration.background(withIdentifier: "nearairSessionIdentifier")
         let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
-        let task = session.downloadTask(with: URL(string: "https://entatonic.sakura.ne.jp/nearair/air.php?latitude=35.681382&longitude=139.766084")!)
+        let task = session.downloadTask(with: URL(string: "https://entatonic.sakura.ne.jp/nearair/airwatch.php?latitude=35.681382&longitude=139.766084")!)
         task.resume()
     }
 }
