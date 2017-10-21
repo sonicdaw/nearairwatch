@@ -66,7 +66,9 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             let data = try Data(contentsOf: location)
             let string = String(data: data, encoding: .utf8)
             /* need to parse data here */
-            self.nearairText.setText(string)
+            let formatter = DateFormatter()
+            formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dMMMHH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
+            self.nearairText.setText(formatter.string(from: Date()) + "\r" + string!)
         } catch {
         }
     }
