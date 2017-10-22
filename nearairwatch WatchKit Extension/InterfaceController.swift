@@ -8,11 +8,15 @@
 
 import WatchKit
 import Foundation
+import CoreLocation
 
-
-class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionDelegate, URLSessionTaskDelegate, URLSessionDownloadDelegate {
+class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionDelegate, URLSessionTaskDelegate, URLSessionDownloadDelegate, CLLocationManagerDelegate {
     @IBOutlet var nearairText: WKInterfaceLabel!
 
+    var locationManager: CLLocationManager! = nil
+    var longitude: CLLocationDegrees!
+    var latitude: CLLocationDegrees!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -20,6 +24,19 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         getNearAir()
         WKExtension.shared().delegate = self
         scheduleNextUpdate()
+        
+        longitude = 0.0
+        latitude = 0.0
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        let status = CLLocationManager.authorizationStatus()
+        if(status == CLAuthorizationStatus.notDetermined) {
+            self.nearairText.setText("GPS not authorized")
+        }
+        
     }
     
     override func willActivate() {
@@ -81,5 +98,15 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
                 self.nearairText.setText("scheduleBackgroundRefresh error: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!){
+        longitude = newLocation.coordinate.longitude
+        latitude = newLocation.coordinate.latitude
+        self.nearairText.setText(String(format: "%f", longitude) + "," + String(format: "%f", latitude))
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        self.nearairText.setText("GPS Failed")
     }
 }
