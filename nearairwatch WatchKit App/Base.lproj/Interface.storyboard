@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
     </dependencies>
     <scenes>
@@ -14,7 +14,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="nearairwatch_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label width="136" height="192" alignment="left" text="Label" numberOfLines="5" id="dfw-dR-D68"/>
+                        <label width="136" height="192" alignment="left" text="Label" numberOfLines="7" id="dfw-dR-D68"/>
                     </items>
                     <connections>
                         <outlet property="nearairText" destination="dfw-dR-D68" id="E0V-Ex-edR"/>
