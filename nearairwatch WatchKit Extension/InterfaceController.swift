@@ -19,11 +19,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         // Configure interface objects here.
         getNearAir()
         WKExtension.shared().delegate = self
-        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 30/*sec*/), userInfo: nil) { (error: Error?) in
-            if let error = error {
-                self.nearairText.setText("scheduleBackgroundRefresh error: \(error.localizedDescription)")
-            }
-        }
+        scheduleNextUpdate()
     }
     
     override func willActivate() {
@@ -77,5 +73,13 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
         let task = session.downloadTask(with: URL(string: "https://entatonic.sakura.ne.jp/nearair/airwatch.php?latitude=35.681382&longitude=139.766084")!)
         task.resume()
+    }
+    
+    func scheduleNextUpdate(){
+        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 30/*sec*/), userInfo: nil) { (error: Error?) in
+            if let error = error {
+                self.nearairText.setText("scheduleBackgroundRefresh error: \(error.localizedDescription)")
+            }
+        }
     }
 }
