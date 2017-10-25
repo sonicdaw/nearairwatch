@@ -14,14 +14,21 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="nearairwatch_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label width="136" height="192" alignment="left" text="Label" numberOfLines="7" id="dfw-dR-D68"/>
+                        <group width="1" alignment="left" id="721-fT-ERd">
+                            <items>
+                                <imageView width="25" height="25" alignment="left" image="NearAirIcon" id="Tpb-gz-qxh"/>
+                                <label width="117" height="64" alignment="left" text="NearAir" textAlignment="left" id="YKx-YH-vIG"/>
+                            </items>
+                        </group>
+                        <separator alignment="left" id="9i4-TU-bYT"/>
+                        <label width="136" height="119" alignment="left" numberOfLines="6" id="dfw-dR-D68"/>
                     </items>
                     <connections>
                         <outlet property="nearairText" destination="dfw-dR-D68" id="E0V-Ex-edR"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="220" y="290"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
