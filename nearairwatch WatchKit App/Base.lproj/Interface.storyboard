@@ -24,6 +24,7 @@
                         <label width="136" height="119" alignment="left" numberOfLines="6" id="dfw-dR-D68"/>
                     </items>
                     <connections>
+                        <outlet property="nearairLocation" destination="YKx-YH-vIG" id="yRY-VG-kgB"/>
                         <outlet property="nearairText" destination="dfw-dR-D68" id="E0V-Ex-edR"/>
                     </connections>
                 </controller>

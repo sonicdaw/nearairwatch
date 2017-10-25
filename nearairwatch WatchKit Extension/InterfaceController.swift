@@ -12,7 +12,8 @@ import CoreLocation
 
 class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionDelegate, URLSessionTaskDelegate, URLSessionDownloadDelegate, CLLocationManagerDelegate {
     @IBOutlet var nearairText: WKInterfaceLabel!
-
+    @IBOutlet var nearairLocation: WKInterfaceLabel!
+    
     var locationManager: CLLocationManager! = nil
     var longitude: CLLocationDegrees!
     var latitude: CLLocationDegrees!
@@ -31,6 +32,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        getGeoLocation(latitude: latitude,longitude: longitude)
         
         let status = CLLocationManager.authorizationStatus()
         if(status == CLAuthorizationStatus.notDetermined) {
@@ -57,6 +59,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 // Be sure to complete the background task once you’re done.
                 getNearAir()
+                getGeoLocation(latitude: latitude,longitude: longitude)
                 backgroundTask.setTaskCompletedWithSnapshot(false)
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
@@ -108,5 +111,21 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         self.nearairText.setText("GPS Failed")
+    }
+    
+    func getGeoLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees){
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+            if error != nil {
+                return
+            }
+            if placemarks!.count > 0 {
+                let placemark = placemarks![0] as CLPlacemark
+                if placemark.locality != nil {
+                    self.nearairLocation.setText(placemark.locality)
+                }
+            } else {
+            }
+        })
     }
 }
