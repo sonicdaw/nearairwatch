@@ -17,22 +17,24 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     var locationManager: CLLocationManager! = nil
     var longitude: CLLocationDegrees!
     var latitude: CLLocationDegrees!
-    
+    var gpsAuthorized: Bool = false
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
         // Configure interface objects here.
-        getNearAir()
-        WKExtension.shared().delegate = self
-        scheduleNextUpdate()
-        
-        longitude = 0.0
-        latitude = 0.0
+        longitude = 139.766084
+        latitude = 35.681382
+        gpsAuthorized = false
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         getGeoLocation(latitude: latitude,longitude: longitude)
+        
+        getNearAir()
+        WKExtension.shared().delegate = self
+        scheduleNextUpdate()
         
         let status = CLLocationManager.authorizationStatus()
         if(status == CLAuthorizationStatus.notDetermined) {
@@ -83,7 +85,12 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             let string = String(data: data, encoding: .utf8)
             let formatter = DateFormatter()
             formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dMMMHH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
-            self.nearairText.setText(formatter.string(from: Date()) + "\r" + string!)
+
+            if gpsAuthorized {
+                self.nearairText.setText(formatter.string(from: Date()) + "\r" + string!)
+            }else{
+                self.nearairText.setText("[NoGPS][東京駅] " + formatter.string(from: Date()) + "\r" + string!)
+            }
         } catch {
         }
     }
@@ -91,7 +98,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     func getNearAir() {
         let config = URLSessionConfiguration.background(withIdentifier: "nearairSessionIdentifier")
         let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
-        let task = session.downloadTask(with: URL(string: "https://entatonic.sakura.ne.jp/nearair/airwatch.php?latitude=35.681382&longitude=139.766084")!)
+        let task = session.downloadTask(with: URL(string: "https://entatonic.sakura.ne.jp/nearair/airwatch.php?latitude=" + String(format: "%.6f", latitude) + "&longitude=" + String(format: "%.6f", longitude))!)
         task.resume()
     }
     
@@ -106,11 +113,13 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!){
         longitude = newLocation.coordinate.longitude
         latitude = newLocation.coordinate.latitude
-        self.nearairText.setText(String(format: "%f", longitude) + "," + String(format: "%f", latitude))
+        gpsAuthorized = true
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        self.nearairText.setText("GPS Failed")
+        longitude = 139.766084
+        latitude = 35.681382
+        gpsAuthorized = false
     }
     
     func getGeoLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees){
