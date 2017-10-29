@@ -46,6 +46,8 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        getNearAir()
+        getGeoLocation(latitude: latitude,longitude: longitude)
     }
 
     override func didDeactivate() {
@@ -63,6 +65,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
                 getNearAir()
                 getGeoLocation(latitude: latitude,longitude: longitude)
                 backgroundTask.setTaskCompletedWithSnapshot(false)
+                scheduleNextUpdate()
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
@@ -103,7 +106,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     }
     
     func scheduleNextUpdate(){
-        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 30/*sec*/), userInfo: nil) { (error: Error?) in
+        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 60/*sec*/), userInfo: nil) { (error: Error?) in
             if let error = error {
                 self.nearairText.setText("scheduleBackgroundRefresh error: \(error.localizedDescription)")
             }
