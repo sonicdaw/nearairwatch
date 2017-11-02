@@ -17,7 +17,7 @@
                         <group width="1" alignment="left" id="721-fT-ERd">
                             <items>
                                 <imageView width="25" height="25" alignment="left" image="NearAirIcon" id="Tpb-gz-qxh"/>
-                                <label width="117" height="64" alignment="left" text="NearAir" textAlignment="left" id="YKx-YH-vIG"/>
+                                <label width="107" height="64" alignment="left" text="NearAir" textAlignment="right" id="YKx-YH-vIG"/>
                             </items>
                         </group>
                         <separator alignment="left" id="9i4-TU-bYT"/>
