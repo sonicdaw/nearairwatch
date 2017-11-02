@@ -23,31 +23,20 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         super.awake(withContext: context)
         
         // Configure interface objects here.
-        longitude = 139.766084
-        latitude = 35.681382
-        gpsAuthorized = false
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-        getGeoLocation(latitude: latitude,longitude: longitude)
-        
-        getNearAir()
+        gpsOff()
+
         WKExtension.shared().delegate = self
+
+        getNearAir()
         scheduleNextUpdate()
-        
-        let status = CLLocationManager.authorizationStatus()
-        if(status == CLAuthorizationStatus.notDetermined) {
-            self.nearairText.setText("GPS not authorized")
-        }
-        
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         getNearAir()
-        getGeoLocation(latitude: latitude,longitude: longitude)
     }
 
     override func didDeactivate() {
@@ -63,7 +52,6 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 // Be sure to complete the background task once you’re done.
                 getNearAir()
-                getGeoLocation(latitude: latitude,longitude: longitude)
                 backgroundTask.setTaskCompletedWithSnapshot(false)
                 scheduleNextUpdate()
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
@@ -89,11 +77,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             let formatter = DateFormatter()
             formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dMMMHH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
 
-            if gpsAuthorized {
-                self.nearairText.setText(formatter.string(from: Date()) + "\r" + string!)
-            }else{
-                self.nearairText.setText("[NoGPS][東京駅] " + formatter.string(from: Date()) + "\r" + string!)
-            }
+            self.nearairText.setText(formatter.string(from: Date()) + "\r" + string!)
         } catch {
         }
     }
@@ -113,16 +97,55 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!){
-        longitude = newLocation.coordinate.longitude
-        latitude = newLocation.coordinate.latitude
-        gpsAuthorized = true
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            self.locationManager.requestAlwaysAuthorization()
+            gpsOff()
+            break
+        case .authorizedWhenInUse:
+            self.locationManager.startUpdatingLocation()
+            if #available(iOS 9.0, *) {
+                locationManager.requestLocation()
+            }
+            gpsOn()
+            break
+        case .authorizedAlways:
+            self.locationManager.startUpdatingLocation()
+            if #available(iOS 9.0, *) {
+                locationManager.requestLocation()
+            }
+            gpsOn()
+            break
+        case .denied:
+            gpsOff()
+            break
+        default:
+            break
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        let location = locations.first
+        self.longitude = location?.coordinate.longitude
+        self.latitude = location?.coordinate.latitude
+        getNearAir()
+        getGeoLocation(latitude: latitude,longitude: longitude)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        gpsOff()
+    }
+    
+    func gpsOn(){
+        gpsAuthorized = true
+    }
+    
+    func gpsOff(){
         longitude = 139.766084
         latitude = 35.681382
         gpsAuthorized = false
+        getGeoLocation(latitude: latitude,longitude: longitude)
     }
     
     func getGeoLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees){
@@ -134,7 +157,11 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             if placemarks!.count > 0 {
                 let placemark = placemarks![0] as CLPlacemark
                 if placemark.locality != nil {
-                    self.nearairLocation.setText(placemark.locality)
+                    if self.gpsAuthorized {
+                        self.nearairLocation.setText(placemark.locality)
+                    }else{
+                        self.nearairLocation.setText("NoGPS " + placemark.locality!)
+                    }
                 }
             } else {
             }
