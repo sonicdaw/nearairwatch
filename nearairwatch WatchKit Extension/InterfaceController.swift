@@ -83,7 +83,8 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     }
     
     func getNearAir() {
-        let config = URLSessionConfiguration.background(withIdentifier: "nearairSessionIdentifier")
+        let config = URLSessionConfiguration.ephemeral
+        config.waitsForConnectivity = true
         let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
         let task = session.downloadTask(with: URL(string: "https://entatonic.sakura.ne.jp/nearair/airwatch.php?latitude=" + String(format: "%.6f", latitude) + "&longitude=" + String(format: "%.6f", longitude))!)
         task.resume()
