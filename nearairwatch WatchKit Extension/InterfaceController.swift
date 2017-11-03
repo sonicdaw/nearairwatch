@@ -132,6 +132,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         self.latitude = location?.coordinate.latitude
         getNearAir()
         getGeoLocation(latitude: latitude,longitude: longitude)
+        gpsOn()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
