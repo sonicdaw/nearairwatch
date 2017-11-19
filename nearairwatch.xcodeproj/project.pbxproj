@@ -22,6 +22,7 @@
 		D9246C871F7864C500376424 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9246C861F7864C500376424 /* ExtensionDelegate.swift */; };
 		D9246C891F7864C500376424 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9246C881F7864C500376424 /* NotificationController.swift */; };
 		D9246C8B1F7864C500376424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9246C8A1F7864C500376424 /* Assets.xcassets */; };
+		D9AB23ED1FC157F80079B001 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AB23EB1FC154660079B001 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AB23ED1FC157F80079B001 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
