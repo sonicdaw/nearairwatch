@@ -105,6 +105,7 @@
 		D9246C8A1F7864C500376424 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9246C8C1F7864C500376424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9246C8D1F7864C500376424 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		D9AB23EB1FC154660079B001 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +149,7 @@
 				D9246C741F7864C500376424 /* nearairwatch WatchKit App */,
 				D9246C831F7864C500376424 /* nearairwatch WatchKit Extension */,
 				D9246C491F7864C400376424 /* Products */,
+				D9AB23EA1FC154660079B001 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,6 +217,14 @@
 				D9246C8D1F7864C500376424 /* PushNotificationPayload.apns */,
 			);
 			path = "nearairwatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		D9AB23EA1FC154660079B001 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9AB23EB1FC154660079B001 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
