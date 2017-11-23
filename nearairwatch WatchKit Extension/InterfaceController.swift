@@ -62,7 +62,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
                 connectivityTask.setTaskCompletedWithSnapshot(false)
             case let urlSessionTask as WKURLSessionRefreshBackgroundTask:
                 // Be sure to complete the URL session task once you’re done.
-                urlSessionTask.setTaskCompletedWithSnapshot(false)
+                urlSessionTask.setTaskCompletedWithSnapshot(true)
             default:
                 // make sure to complete unhandled task types
                 task.setTaskCompletedWithSnapshot(false)
@@ -162,7 +162,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
                     if self.gpsAuthorized {
                         self.nearairLocation.setText(placemark.locality)
                     }else{
-                        self.nearairLocation.setText("NoGPS " + placemark.locality!)
+                        self.nearairLocation.setText("1NoGPS " + placemark.locality!)
                     }
                 }
             } else {
