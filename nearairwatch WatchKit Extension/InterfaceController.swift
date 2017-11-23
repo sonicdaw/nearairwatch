@@ -162,7 +162,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
                     if self.gpsAuthorized {
                         self.nearairLocation.setText(placemark.locality)
                     }else{
-                        self.nearairLocation.setText("1NoGPS " + placemark.locality!)
+                        self.nearairLocation.setText("NoGPS " + placemark.locality!)
                     }
                 }
             } else {
