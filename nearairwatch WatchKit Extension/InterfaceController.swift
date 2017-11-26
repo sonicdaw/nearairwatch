@@ -17,7 +17,10 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     var locationManager: CLLocationManager! = nil
     var longitude: CLLocationDegrees!
     var latitude: CLLocationDegrees!
+    var previous_longitude: CLLocationDegrees!
+    var previous_latitude: CLLocationDegrees!
     var gpsAuthorized: Bool = false
+    var serverAccessSkipCount = 0
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -51,7 +54,14 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             switch task {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 // Be sure to complete the background task once you’re done.
-                getNearAir()
+                if getDistanceFromPreviousLocation(latitude: self.latitude, longitude: self.longitude) > 10 || serverAccessSkipCount > 10{
+                    getNearAir()
+                    previous_longitude = longitude
+                    previous_latitude = latitude
+                    serverAccessSkipCount = 0
+                }else{
+                    serverAccessSkipCount += 1
+                }
                 backgroundTask.setTaskCompletedWithSnapshot(false)
                 scheduleNextUpdate()
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
@@ -78,6 +88,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dMMMHH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
 
             self.nearairText.setText(formatter.string(from: Date()) + "\r" + string!)
+            getGeoLocation(latitude: latitude,longitude: longitude)
         } catch {
         }
     }
@@ -131,8 +142,13 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         self.longitude = location?.coordinate.longitude
         self.latitude = location?.coordinate.latitude
         getNearAir()
-        getGeoLocation(latitude: latitude,longitude: longitude)
         gpsOn()
+    }
+    
+    func getDistanceFromPreviousLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> (Double){
+        let currentLocation = CLLocation(latitude: latitude, longitude: longitude)
+        let previousLocation = CLLocation(latitude: self.previous_latitude, longitude: self.previous_longitude)
+        return previousLocation.distance(from:currentLocation)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -146,8 +162,9 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     func gpsOff(){
         longitude = 139.766084
         latitude = 35.681382
+        previous_longitude = longitude
+        previous_latitude = latitude
         gpsAuthorized = false
-        getGeoLocation(latitude: latitude,longitude: longitude)
     }
     
     func getGeoLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees){
