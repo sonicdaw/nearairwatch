@@ -21,6 +21,9 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     var previous_latitude: CLLocationDegrees!
     var gpsAuthorized: Bool = false
     var serverAccessSkipCount = 0
+    var nearairTexts:Array<String> = []
+    var nearairTexts_index = 0
+    var nearairPreviousTexts: String = ""
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -39,7 +42,13 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        getNearAir()
+        if nearairTexts.count > 0 {
+            nearairTexts_index += 1
+            if nearairTexts.count - 1 < nearairTexts_index {
+                nearairTexts_index = 0
+            }
+            self.nearairText.setText(nearairTexts[nearairTexts_index])
+        }
     }
 
     override func didDeactivate() {
@@ -85,10 +94,22 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             let data = try Data(contentsOf: location)
             let string = String(data: data, encoding: .utf8)
             let formatter = DateFormatter()
-            formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dMMMHH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
+            formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
 
-            self.nearairText.setText(formatter.string(from: Date()) + "\r" + string!)
-            getGeoLocation(latitude: latitude,longitude: longitude)
+            if nearairPreviousTexts != string {
+                nearairTexts.removeAll()
+                string!.enumerateLines { (line, stop) -> () in
+                    if line != "" {
+                        self.nearairTexts.append(formatter.string(from: Date()) + " " + line)
+                    }
+                }
+                if nearairTexts.count > 0 {
+                    nearairTexts_index = 0
+                    self.nearairText.setText(nearairTexts[nearairTexts_index])
+                    getGeoLocation(latitude: latitude,longitude: longitude)
+                }
+                nearairPreviousTexts = string!
+            }
         } catch {
         }
     }
