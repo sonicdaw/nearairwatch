@@ -9,3 +9,5 @@ Xcode 9.1
 Recommended setting  
 - Allow location service on iPhone  - Always
 - Watch app - General - Wake Screen - Always
+
+App Icon is designed by @fuyucchi
