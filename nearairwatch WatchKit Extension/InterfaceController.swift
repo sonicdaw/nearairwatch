@@ -36,7 +36,6 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         WKExtension.shared().delegate = self
 
         getNearAir()
-        scheduleNextUpdate()
     }
     
     override func willActivate() {
@@ -49,6 +48,8 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             }
             self.nearairText.setText(nearairTexts[nearairTexts_index])
         }
+        
+        getNearAir()
     }
 
     override func didDeactivate() {
@@ -63,16 +64,8 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             switch task {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 // Be sure to complete the background task once you’re done.
-                if getDistanceFromPreviousLocation(latitude: self.latitude, longitude: self.longitude) > 10 || serverAccessSkipCount > 10{
-                    getNearAir()
-                    previous_longitude = longitude
-                    previous_latitude = latitude
-                    serverAccessSkipCount = 0
-                }else{
-                    serverAccessSkipCount += 1
-                }
                 backgroundTask.setTaskCompletedWithSnapshot(false)
-                scheduleNextUpdate()
+                getNearAir()
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
@@ -104,9 +97,11 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
                     }
                 }
                 if nearairTexts.count > 0 {
-                    nearairTexts_index = 0
                     self.nearairText.setText(nearairTexts[nearairTexts_index])
                     getGeoLocation(latitude: latitude,longitude: longitude)
+                    nearairTexts_index = 0
+                    previous_longitude = longitude
+                    previous_latitude = latitude
                 }
                 nearairPreviousTexts = string!
             }
@@ -115,11 +110,19 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     }
     
     func getNearAir() {
-        let config = URLSessionConfiguration.ephemeral
-        config.waitsForConnectivity = true
-        let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
-        let task = session.downloadTask(with: URL(string: "https://entatonic.sakura.ne.jp/nearair/airwatch.php?latitude=" + String(format: "%.6f", latitude) + "&longitude=" + String(format: "%.6f", longitude))!)
-        task.resume()
+        if getDistanceFromPreviousLocation(latitude: self.latitude, longitude: self.longitude) > 10 || serverAccessSkipCount > 10{
+            let config = URLSessionConfiguration.ephemeral
+            config.waitsForConnectivity = true
+            let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
+            let task = session.downloadTask(with: URL(string: "https://entatonic.sakura.ne.jp/nearair/airwatch.php?latitude=" + String(format: "%.6f", latitude) + "&longitude=" + String(format: "%.6f", longitude))!)
+            task.resume()
+
+            serverAccessSkipCount = 0
+        }else{
+            serverAccessSkipCount += 1
+        }
+        
+        scheduleNextUpdate()
     }
     
     func scheduleNextUpdate(){
