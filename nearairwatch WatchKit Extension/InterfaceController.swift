@@ -227,4 +227,10 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             }
         })
     }
+    
+    override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
+        let location: [String : Double] = ["latitude": self.latitude, "longitude" : self.longitude]
+        
+        return location
+    }
 }

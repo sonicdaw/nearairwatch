@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13507"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -22,6 +22,11 @@
                         </group>
                         <separator alignment="left" id="9i4-TU-bYT"/>
                         <label width="136" height="119" alignment="left" numberOfLines="6" id="dfw-dR-D68"/>
+                        <button width="1" alignment="left" title="Map" id="nVC-rH-ni3">
+                            <connections>
+                                <segue destination="i9v-g5-hWO" kind="push" id="kGU-kl-jUg"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="nearairLocation" destination="YKx-YH-vIG" id="yRY-VG-kgB"/>
@@ -30,6 +35,20 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="290"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="hGF-4q-o8B">
+            <objects>
+                <controller identifier="mapSegie" title="Map" id="i9v-g5-hWO" customClass="MapInterfaceController" customModule="nearairwatch_WatchKit_Extension">
+                    <items>
+                        <map height="151" alignment="left" id="b9g-Zj-ln4"/>
+                    </items>
+                    <connections>
+                        <outlet property="mapView" destination="b9g-Zj-ln4" id="7if-MM-L9W"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="473" y="289"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

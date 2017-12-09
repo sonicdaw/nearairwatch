@@ -23,6 +23,7 @@
 		D9246C891F7864C500376424 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9246C881F7864C500376424 /* NotificationController.swift */; };
 		D9246C8B1F7864C500376424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9246C8A1F7864C500376424 /* Assets.xcassets */; };
 		D9AB23ED1FC157F80079B001 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AB23EB1FC154660079B001 /* CoreLocation.framework */; };
+		D9DA06851FDC9E2F00AF20DC /* MapInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA06841FDC9E2F00AF20DC /* MapInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,8 +107,8 @@
 		D9246C8A1F7864C500376424 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9246C8C1F7864C500376424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9246C8D1F7864C500376424 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		D98CDBB91FDC97B600843305 /* MapInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInterfaceController.swift; sourceTree = "<group>"; };
 		D9AB23EB1FC154660079B001 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D9DA06841FDC9E2F00AF20DC /* MapInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +203,6 @@
 		D9246C741F7864C500376424 /* nearairwatch WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
-				D98CDBB91FDC97B600843305 /* MapInterfaceController.swift */,
 				D9246C751F7864C500376424 /* Interface.storyboard */,
 				D9246C781F7864C500376424 /* Assets.xcassets */,
 				D9246C7A1F7864C500376424 /* Info.plist */,
@@ -214,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				D9246C841F7864C500376424 /* InterfaceController.swift */,
+				D9DA06841FDC9E2F00AF20DC /* MapInterfaceController.swift */,
 				D9246C861F7864C500376424 /* ExtensionDelegate.swift */,
 				D9246C881F7864C500376424 /* NotificationController.swift */,
 				D9246C8A1F7864C500376424 /* Assets.xcassets */,
@@ -456,6 +457,7 @@
 			files = (
 				D9246C891F7864C500376424 /* NotificationController.swift in Sources */,
 				D9246C871F7864C500376424 /* ExtensionDelegate.swift in Sources */,
+				D9DA06851FDC9E2F00AF20DC /* MapInterfaceController.swift in Sources */,
 				D9246C851F7864C500376424 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
