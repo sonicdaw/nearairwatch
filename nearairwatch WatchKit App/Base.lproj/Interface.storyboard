@@ -27,6 +27,11 @@
                                 <segue destination="i9v-g5-hWO" kind="push" id="kGU-kl-jUg"/>
                             </connections>
                         </button>
+                        <button width="1" alignment="left" title="Time" id="Tyo-Ph-DaT">
+                            <connections>
+                                <action selector="time_onoff" destination="AgC-eL-Hgc" id="QLA-u0-NnC"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="nearairLocation" destination="YKx-YH-vIG" id="yRY-VG-kgB"/>

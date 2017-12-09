@@ -13,6 +13,7 @@ import CoreLocation
 class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionDelegate, URLSessionTaskDelegate, URLSessionDownloadDelegate, CLLocationManagerDelegate {
     @IBOutlet var nearairText: WKInterfaceLabel!
     @IBOutlet var nearairLocation: WKInterfaceLabel!
+    @IBOutlet var timeButton: WKInterfaceButton!
     
     var locationManager: CLLocationManager! = nil
     var longitude: CLLocationDegrees!
@@ -27,6 +28,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     var gpsUpdateTime: String = ""
     var backgroundUpdateTime: String = ""
     var nearAirUpdateTime: String = ""
+    var time_on: Bool = false
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -56,7 +58,11 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     
     func update_display() {
         if nearairTexts.count > 0 {
-            self.nearairText.setText("B" + backgroundUpdateTime + " S" + nearAirUpdateTime + " G" + gpsUpdateTime + "/" + nearairTexts[nearairTexts_index])
+            if time_on {
+                self.nearairText.setText("B" + backgroundUpdateTime + " S" + nearAirUpdateTime + " G" + gpsUpdateTime + "/" + nearairTexts[nearairTexts_index])
+            }else{
+                self.nearairText.setText(nearairTexts[nearairTexts_index])
+            }
             nearairTexts_index += 1
             if nearairTexts.count - 1 < nearairTexts_index {
                 nearairTexts_index = 0
@@ -232,5 +238,14 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         let location: [String : Double] = ["latitude": self.latitude, "longitude" : self.longitude]
         
         return location
+    }
+
+    @IBAction func time_onoff(){
+        if time_on {
+            time_on = false
+        }else{
+            time_on = true
+        }
+        update_display()
     }
 }
