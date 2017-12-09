@@ -24,6 +24,9 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     var nearairTexts:Array<String> = []
     var nearairTexts_index = 0
     var nearairPreviousTexts: String = ""
+    var gpsUpdateTime: String = ""
+    var backgroundUpdateTime: String = ""
+    var nearAirUpdateTime: String = ""
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -41,20 +44,24 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        if nearairTexts.count > 0 {
-            nearairTexts_index += 1
-            if nearairTexts.count - 1 < nearairTexts_index {
-                nearairTexts_index = 0
-            }
-            self.nearairText.setText(nearairTexts[nearairTexts_index])
-        }
-        
+
+        update_display()
         getNearAir()
     }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+    }
+    
+    func update_display() {
+        if nearairTexts.count > 0 {
+            self.nearairText.setText("B" + backgroundUpdateTime + " S" + nearAirUpdateTime + " G" + gpsUpdateTime + "/" + nearairTexts[nearairTexts_index])
+            nearairTexts_index += 1
+            if nearairTexts.count - 1 < nearairTexts_index {
+                nearairTexts_index = 0
+            }
+        }
     }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
@@ -64,6 +71,10 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             switch task {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 // Be sure to complete the background task once you’re done.
+                let formatter = DateFormatter()
+                formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
+                self.backgroundUpdateTime = formatter.string(from: Date())
+                
                 backgroundTask.setTaskCompletedWithSnapshot(false)
                 getNearAir()
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
@@ -88,16 +99,17 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
             let string = String(data: data, encoding: .utf8)
             let formatter = DateFormatter()
             formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
+            nearAirUpdateTime = formatter.string(from: Date())
 
             if nearairPreviousTexts != string {
                 nearairTexts.removeAll()
                 string!.enumerateLines { (line, stop) -> () in
                     if line != "" {
-                        self.nearairTexts.append(formatter.string(from: Date()) + " " + line)
+                        self.nearairTexts.append(self.nearAirUpdateTime + " " + line)
                     }
                 }
                 if nearairTexts.count > 0 {
-                    self.nearairText.setText(nearairTexts[nearairTexts_index])
+                    update_display()
                     getGeoLocation(latitude: latitude,longitude: longitude)
                     nearairTexts_index = 0
                     previous_longitude = longitude
@@ -165,6 +177,11 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         let location = locations.first
         self.longitude = location?.coordinate.longitude
         self.latitude = location?.coordinate.latitude
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
+        gpsUpdateTime = formatter.string(from: Date())
+        
         getNearAir()
         gpsOn()
     }
