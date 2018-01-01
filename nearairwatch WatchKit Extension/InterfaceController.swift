@@ -48,7 +48,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
         super.willActivate()
 
         update_display()
-        getNearAir()
+        locationManager.requestLocation()
     }
 
     override func didDeactivate() {
@@ -82,7 +82,7 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
                 self.backgroundUpdateTime = formatter.string(from: Date())
                 
                 backgroundTask.setTaskCompletedWithSnapshot(false)
-                getNearAir()
+                locationManager.requestLocation()
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
