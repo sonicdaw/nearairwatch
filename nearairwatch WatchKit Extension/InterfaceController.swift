@@ -57,16 +57,16 @@ class InterfaceController: WKInterfaceController,XMLParserDelegate, WKExtensionD
     }
     
     func update_display() {
-        if nearairTexts.count > 0 {
+        if nearairTexts.count > 0 && nearairTexts.count > nearairTexts_index {
             if time_on {
                 self.nearairText.setText("B" + backgroundUpdateTime + " S" + nearAirUpdateTime + " G" + gpsUpdateTime + "/" + nearairTexts[nearairTexts_index])
             }else{
                 self.nearairText.setText(nearairTexts[nearairTexts_index])
             }
-            nearairTexts_index += 1
-            if nearairTexts.count - 1 < nearairTexts_index {
-                nearairTexts_index = 0
-            }
+        }
+        nearairTexts_index += 1
+        if nearairTexts.count - 1 < nearairTexts_index {
+            nearairTexts_index = 0
         }
     }
 
