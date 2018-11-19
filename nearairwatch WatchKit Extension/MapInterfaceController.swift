@@ -28,10 +28,10 @@ class MapInterfaceController: WKInterfaceController {
         let longitude = location["longitude"]
         
         let mapLocation = CLLocationCoordinate2DMake(latitude!, longitude!)
-        let coordinateSpan = MKCoordinateSpanMake(0.02, 0.02)
+        let coordinateSpan = MKCoordinateSpan.init(latitudeDelta: 0.02, longitudeDelta: 0.02)
         
         self.mapView.addAnnotation(mapLocation, with: WKInterfaceMapPinColor.red)
-        self.mapView.setRegion(MKCoordinateRegionMake(mapLocation, coordinateSpan))
+        self.mapView.setRegion(MKCoordinateRegion.init(center: mapLocation, span: coordinateSpan))
     }
 
     override func willActivate() {
