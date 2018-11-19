@@ -4,7 +4,7 @@ NearAir for Apple Watch
 
 Apple Watch Series 2 or later  
 WatchOS 4.0 or later  
-Xcode 9.1
+Xcode 10.1
 
 Recommended setting  
 - Allow location service on iPhone  - Always
